@@ -70,10 +70,8 @@ def create(CL, rshift):
 
     buf = io.BytesIO()
     im2.save(buf, format='PNG')
-    fileName = 'pic_pastell_B_{}_{}.png'.format(CL,rshift)
-    plt.axis('off'); plt.imshow(im2)
     thing = buf.getvalue()
-    # test = api.media_upload('28.png',file= buf)
-    api.update_status(status='#creativecoding #codeart #generativeart #computerart #glitchart')
+    test = api.media_upload('28.png',file= buf)
+    api.update_status(status='test')
 
 create(CL=181, rshift=3)
