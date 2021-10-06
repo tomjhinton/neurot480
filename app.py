@@ -74,6 +74,6 @@ def create(CL, rshift):
     plt.axis('off'); plt.imshow(im2)
     thing = buf.getvalue()
     # test = api.media_upload('28.png',file= buf)
-    api.update_status(status='#creativecoding #codeart #generativeart #computerart #glitchart', media_ids=[test.media_id])
+    api.update_status(status='#creativecoding #codeart #generativeart #computerart #glitchart')
 
 create(CL=181, rshift=3)
