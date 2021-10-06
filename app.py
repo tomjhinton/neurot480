@@ -32,7 +32,7 @@ def random_color():
 def create(CL, rshift):
 
 
-    imarray = np.random.rand(900,1600,3) * 255
+    imarray = np.random.rand(1000,1000,3) * 255
 
     im2 = Image.fromarray(imarray.astype('uint8')).convert('RGBA')
 
@@ -41,7 +41,7 @@ def create(CL, rshift):
 
     draw = ImageDraw.Draw(im2)
     for i in range(randint(0, 500)):
-        draw.rectangle(((randint(0, 1000), randint(0, 1600)), (randint(0, 1000), randint(0, 1600))), outline= tuple(np.random.randint(256, size=3)) + (60,), width=100)
+        draw.rectangle(((randint(0, 1000), randint(0, 1000)), (randint(0, 1000), randint(0, 1000))), outline= tuple(np.random.randint(256, size=3)) + (60,), width=100)
         draw.ellipse((randint(0, 1000), randint(0, 1000), randint(0, 1000), randint(0, 1000)), outline=tuple(np.random.randint(256, size=3)), width=100)
         draw.arc([ (randint(0, 1000), randint(0, 1000)), (randint(0, 1000), randint(0, 1000))], randint(0, 360), randint(0, 360), fill=tuple(np.random.randint(256, size=3)), width=20)
 
@@ -70,8 +70,10 @@ def create(CL, rshift):
 
     buf = io.BytesIO()
     im2.save(buf, format='PNG')
+    fileName = 'pic_pastell_B_{}_{}.png'.format(CL,rshift)
+    plt.axis('off'); plt.imshow(im2)
     thing = buf.getvalue()
-    test = api.media_upload('28.png',file= buf)
+    # test = api.media_upload('28.png',file= buf)
     api.update_status(status='#creativecoding #codeart #generativeart #computerart #glitchart', media_ids=[test.media_id])
 
 create(CL=181, rshift=3)
