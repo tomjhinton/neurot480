@@ -16,7 +16,8 @@ from random import randint
 from quote import quote
 
 search = 'Neuromancer'
-result = quote(search)
+result = quote(search, limit=100)
+print(result[99])
 
 
 quote_font = ImageFont.truetype('FerriteCoreDX-Regular.ttf', 52)
