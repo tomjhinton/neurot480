@@ -15,7 +15,7 @@ from random import randint
 
 from quote import quote
 
-search = 'William Gibson'
+search = 'Neuromancer'
 result = quote(search)
 
 
@@ -24,10 +24,7 @@ quote_text = result[randint(0, len(result)-1)]['quote']
 
 
 
-def random_color():
-    rgbl=[255,0,0]
-    random.shuffle(rgbl)
-    return tuple(rgbl)
+
 
 def create(CL, rshift):
 
@@ -71,7 +68,8 @@ def create(CL, rshift):
     buf = io.BytesIO()
     im2.save(buf, format='PNG')
     thing = buf.getvalue()
+    buf.seek(0)
     test = api.media_upload('28.png',file= buf)
-    api.update_status(status='test')
+    api.update_status(status='#creativecoding #codeart #generativeart #computerart #glitchart', media_ids=[test.media_id])
 
 create(CL=181, rshift=3)
